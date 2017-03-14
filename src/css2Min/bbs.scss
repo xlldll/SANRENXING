@@ -1,0 +1,505 @@
+@charset "UTF-8";
+//Created by LinChuQiang.
+html {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background: #eeeeee;
+	font-size: 62.5%;
+	/*10 ÷ 16 × 100% = 62.5%*/
+	/*font-size: 1.4rem;/*1.4 × 10px = 14px */
+	font-weight: 200;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.kinds {
+	
+	max-width: 500px;
+	max-height: 150px;
+	margin: 50px auto;
+	padding: 1rem;
+	
+	border: 2px solid #000;
+	background-color: #eee;
+	h2 {
+		margin: 0 0 1rem 0;
+		text-align: center;
+	}
+	input {
+		width: 100%;
+		margin: 1rem 0;
+		
+		text-align: center;
+		font-size: 2rem;
+		outline: 0;
+	}
+	input[type=submit] {
+		border: 1px solid cornflowerblue;
+		font-size: 1.5rem;
+		font-weight: 600;
+		transition: all 0.2s;
+		background: none;
+		&:hover {
+			color: whitesmoke;
+			background-color: #000000;
+		}
+	}
+	
+}
+
+.panels {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	margin: 6vh 0;
+	
+	font-size: 1.4rem;
+	
+	/*目前浏览器都不支持 perspective 属性。Chrome 和 Safari 支持替代的 -webkit-perspective 属性。*/
+	perspective: 1000px;
+	-webkit-perspective: 1000px;
+	/*transform-style 属性规定如何在 3D 空间中呈现被嵌套的元素。*/
+	transform-style: preserve-3d;
+	.panel {
+		/*flex-grow:项目的放大比例，默认为0，即如果存在剩余空间，也不放大。都为1，则它们将等分剩余空间（如果有的话）。*/
+		/*flex-shrink:项目的缩小比例，默认为1。如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。*/
+		/*flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。*/
+		flex: 1 1 auto;
+		position: relative;
+		
+		padding: 1rem;
+		/*border: 1rem double #1a1a1a;*/
+		background: white;
+		overflow: scroll;
+		
+		box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+		transition: all 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11);
+		&.grow {
+			flex: 5 !important;
+		}
+		&.post {
+			$postColor: #1a1a1a;
+			flex-basis: 30%;
+			
+			background-color: #fff;
+			background-image: linear-gradient(90deg, transparent 79px, #444 79px, #666 81px, transparent 81px),
+			linear-gradient(#eee .1em, transparent .1em);
+			background-size: 100% 1.2em;
+			
+			transform: translateX(59%) rotateY(6deg) scale(1) translateX(-50%);
+			z-index: 1001;
+			header {
+				text-align: center;
+				letter-spacing: 0.5rem;
+				h1 {
+					margin: 0;
+				}
+				h3 {
+					margin: 0.5rem 0;
+					
+				}
+			}
+			ul {
+				margin: 0;
+				padding: 0.5rem;
+				li {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: relative;
+					
+					height: 100%;
+					padding: 0.5rem;
+					margin: 0.5rem 0;
+					overflow: hidden;
+					border-top: 0.1rem solid $postColor;
+					border-bottom: 0.2rem solid $postColor;
+					list-style: none;
+					
+					h3.love {
+						font-size: 2.4rem;
+						color: #00b3ee;
+						text-shadow: 10px -10px 10px $postColor;
+					}
+					
+					figure {
+						margin: 1rem;
+						figcaption {
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
+							margin: 0;
+							h3 {
+								margin: 0;
+								font-size: 2.5rem;
+							}
+							span {
+								font-size: 1.4rem;
+							}
+						}
+						p {
+							margin-bottom: 0;
+							font-weight: 200;
+						}
+					}
+					button {
+						&.follow {
+							flex-grow: 0;
+							flex-shrink: 1;
+							flex-basis: 0;
+							
+							padding: 9.5% 1%;
+							
+							color: #FFFFFF;
+							background: #d12028;
+							border-color: #FFFFFF;
+							opacity: 0.5;
+							filter: alpha(opacity=50);
+							font-size: 1.2rem;
+							font-weight: 600;
+							z-index: 1003;
+							cursor: pointer;
+							
+							-webkit-transform: rotate(37deg) scale(1.3) translateY(37%) translateX(150%);
+							-moz-transform: rotate(37deg) scale(1.3) translateY(37%) translateX(150%);
+							-ms-transform: rotate(37deg) scale(1.3) translateY(37%) translateX(150%);
+							-o-transform: rotate(37deg) scale(1.3) translateY(37%) translateX(150%);
+							transform: rotate(37deg) scale(1.3) translateY(37%) translateX(150%);
+						}
+						&[disabled] {
+							color: #d12028;
+							background: #eeeeee;
+							cursor: not-allowed;
+						}
+					}
+					
+				}
+			}
+		}
+		&.collect {
+			$collectColor: #87CEFF;
+			flex-basis: 15%;
+			padding: 1rem 1rem 1rem 2rem;
+		/*	border-color: $collectColor;
+			border-left: transparent;*/
+			
+			background-color: hsl(2, 57%, 40%);
+			background-image: repeating-linear-gradient(transparent, transparent 50px, rgba(0, 0, 0, .4) 50px, rgba(0, 0, 0, .4) 53px, transparent 53px, transparent 63px, rgba(0, 0, 0, .4) 63px, rgba(0, 0, 0, .4) 66px, transparent 66px, transparent 116px, rgba(0, 0, 0, .5) 116px, rgba(0, 0, 0, .5) 166px, rgba(255, 255, 255, .2) 166px, rgba(255, 255, 255, .2) 169px, rgba(0, 0, 0, .5) 169px, rgba(0, 0, 0, .5) 179px, rgba(255, 255, 255, .2) 179px, rgba(255, 255, 255, .2) 182px, rgba(0, 0, 0, .5) 182px, rgba(0, 0, 0, .5) 232px, transparent 232px),
+			repeating-linear-gradient(270deg, transparent, transparent 50px, rgba(0, 0, 0, .4) 50px, rgba(0, 0, 0, .4) 53px, transparent 53px, transparent 63px, rgba(0, 0, 0, .4) 63px, rgba(0, 0, 0, .4) 66px, transparent 66px, transparent 116px, rgba(0, 0, 0, .5) 116px, rgba(0, 0, 0, .5) 166px, rgba(255, 255, 255, .2) 166px, rgba(255, 255, 255, .2) 169px, rgba(0, 0, 0, .5) 169px, rgba(0, 0, 0, .5) 179px, rgba(255, 255, 255, .2) 179px, rgba(255, 255, 255, .2) 182px, rgba(0, 0, 0, .5) 182px, rgba(0, 0, 0, .5) 232px, transparent 232px),
+			repeating-linear-gradient(125deg, transparent, transparent 2px, rgba(0, 0, 0, .2) 2px, rgba(0, 0, 0, .2) 3px, transparent 3px, transparent 5px, rgba(0, 0, 0, .2) 5px);
+			
+			transform-origin: 50% 50% -10px;
+			transform: translateX(51%) rotateY(-14deg) scale(1.08) translateX(-42%);
+			z-index: 1000;
+			
+			header {
+				text-align: center;
+				letter-spacing: 0.5rem;
+				color: $collectColor;
+				h1 {
+					margin: 0;
+				}
+				h3 {
+					margin: 0.5rem 0;
+				}
+			}
+			ul {
+				margin: 0;
+				padding: 0.5rem;
+				li {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					
+					padding: 1rem 0.5rem;
+					border-bottom: 1px solid $collectColor;
+					background-color: white;
+					span {
+						float: left;
+					}
+					button {
+						position: relative;
+						
+						padding: 0;
+						border: 0;
+						background: none;
+						z-index: 2;
+						
+						line-height: 1;
+						font-weight: 600;
+						font-size: 1.5rem;
+						font-family: 'Open Sans';
+						
+						text-transform: uppercase;
+						
+						-webkit-appearance: button;
+						cursor: pointer;
+						-webkit-transition: all 0.2s;
+						transition: all 0.2s;
+						
+						&:hover {
+							color: #fff;
+							background: #000;
+							outline: 0;
+						}
+					}
+					&.total {
+						font-weight: 600;
+						border-bottom: 3px solid $collectColor;
+						border-top: 3px double $collectColor;
+						color: $collectColor;
+					}
+					
+				}
+			}
+		}
+		&.edit {
+			$editColor: #fb1;
+			flex-basis: 25%;
+			padding: 1rem 1rem 1rem 2rem;
+			
+			background: radial-gradient(black 15%, transparent 16%) 0 0,
+			radial-gradient(black 15%, transparent 16%) 8px 8px,
+			radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+			radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+			background-color: #282828;
+			background-size: 16px 16px;
+			
+			transform: translateX(-52%) rotateY(10deg) translateX(62%) scale(1.09);
+			/*border-color: $editColor;
+			border-left: transparent;*/
+			
+			z-index: 999;
+			
+			header {
+				text-align: center;
+				letter-spacing: 0.5rem;
+				color: $editColor;
+				h1 {
+					margin: 0;
+				}
+				h3 {
+					margin: 0.5rem 0;
+					
+				}
+			}
+			form {
+				display: flex;
+				flex-wrap: wrap;
+				position: relative;
+				
+				border: 2px solid $editColor;
+				margin: 1rem 0;
+				overflow: hidden;
+			}
+			div {
+				display: flex;
+				flex-wrap: wrap;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				
+				&.data {
+					position: relative;
+					
+					border: 2px solid #000;
+					margin: 1rem 0;
+					overflow: hidden;
+				}
+			}
+			
+			input, select {
+				
+				width: 33.3333%;
+				margin: 0;
+				padding: 10px;
+				
+				border: 0;
+				border-right: 1px solid #000;
+				border-bottom: 1px solid #000;
+				
+				font-size: 1.4rem;
+				appearance: none;
+				
+				&:focus {
+					background: #fef2de;
+					outline: 0;
+				}
+			}
+			input:last-of-type {
+				width: 100%;
+			}
+			select:last-of-type {
+				border-right: 0;
+			}
+			textarea {
+				width: 100%;
+				margin: 0;
+				padding: 1rem;
+				border: 0;
+				border-bottom: 1px solid #000;
+			}
+			
+			button.editRemove {
+				position: relative;
+				width: 100%;
+				margin: 0;
+				padding: 1rem;
+				overflow: hidden;
+				
+				background: none;
+				font-weight: 600;
+				color: #A6ACEC;
+				border: 0;
+				
+				outline: none;
+				cursor: pointer;
+				-webkit-transition: all .5s;
+				transition: all .5s;
+				
+				&:before, &:after {
+					position: absolute;
+					top: 0;
+					width: 0;
+					height: 100%;
+					content: "";
+					
+					z-index: -1;
+					background-color: #A6ACEC;
+					
+					-webkit-transition: all 0.25s;
+					transition: all 0.25s;
+				}
+				&:before {
+					left: 0;
+				}
+				&:after {
+					right: 0;
+				}
+				&:hover {
+					color: #27323A;
+				}
+				&:hover:before, &:hover:after {
+					width: 50%;
+				}
+			}
+			
+			//添加按钮
+			button.editAdd {
+				position: relative;
+				width: 100%;
+				margin: 0;
+				padding: 1rem;
+				overflow: hidden;
+				
+				background: none;
+				font-weight: 600;
+				color: #FFD478;
+				border: 0;
+				
+				outline: none;
+				cursor: pointer;
+				-webkit-transition: all .5s;
+				transition: all .5s;
+				
+				&:before {
+					content: "";
+					background-color: #FFD478;
+					-webkit-transform: skew(45deg, 0);
+					transform: skew(45deg, 0);
+					width: 0;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: -30px;
+					z-index: -1;
+					-webkit-transition: all .5s;
+					transition: all .5s;
+				}
+				&:hover {
+					color: $editColor;
+				}
+				&:hover:before {
+					width: 150%;
+				}
+			}
+			//加载按钮
+			span {
+				position: relative;
+				margin: 1rem 0;
+				padding: 0;
+				
+				background: none;
+				border: 0;
+				
+				color: #f45e61;
+				font-weight: 700;
+				
+				&::before, &::after {
+					position: absolute;
+					content: '';
+					width: 100%;
+					height: 100%;
+				}
+				
+				&.circle {
+					border-radius: 100%;
+					&::before, &::after {
+						border-radius: 100%;
+					}
+				}
+				&.spin {
+					width: 100px;
+					height: 100px;
+					
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					
+					&::before, &::after {
+						top: 0;
+						left: 0;
+					}
+					&::before {
+						border: 2px solid transparent;
+					}
+					&::after {
+						border: 0 solid transparent;
+					}
+					&:hover {
+						color: #0eb7da;
+					}
+					&:hover::before {
+						border-top-color: #0eb7da;
+						border-right-color: #0eb7da;
+						border-bottom-color: #0eb7da;
+						-webkit-transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+						transition: border-top-color 0.15s linear, border-right-color 0.15s linear 0.1s, border-bottom-color 0.15s linear 0.2s;
+					}
+					&:hover::after {
+						border-top: 2px solid #0eb7da;
+						border-left-width: 2px;
+						border-right-width: 2px;
+						-webkit-transform: rotate(270deg);
+						-ms-transform: rotate(270deg);
+						transform: rotate(270deg);
+						-webkit-transition: -webkit-transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+						transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+					}
+				}
+				
+			}
+			
+		}
+	}
+}
