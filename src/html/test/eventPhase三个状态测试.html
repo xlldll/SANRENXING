@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>eventPhase三个状态测试</title>
+</head>
+<body>
+<input type = "button" id = "myBtn" value = "点击" />
+<script>
+	var btn     = document.getElementById( "myBtn" );
+	btn.onclick = function( event ) {
+		console.log( "2btn.onclick:" + event );
+		console.log( event );
+		console.log( "2AT_TARGET正常事件派发:" + event.eventPhase ); //2 事件处理程序处于目标上
+		console.log( this === event.target && this === event.currentTarget && event.target === event.currentTarget );
+	};
+	document.body.addEventListener( "click",function() {
+		console.log( "1bodyclick:" + event );
+		console.log( event );
+		console.log( "1CAPTURING_PHASE捕获阶段:" + event.eventPhase ); //1 捕获阶段,IE是木有捕获阶段的
+	},true );
+	document.body.onclick = function( event ) {
+		console.log( "3onclick:" + event );
+		console.log( event );
+		console.log( "3BUBBLING_PHASE冒泡阶段:" + event.eventPhase ); //3 冒泡阶段
+	};
+</script>
+</body>
+</html>
