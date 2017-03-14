@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*导航栏*/
+nav {
+	position: relative;
+	
+	width: 100%;
+	height: 40px;
+	z-index: 1050;
+	
+	background: #2650A4;
+	a {
+		
+		display: inline-block;
+		
+		width: 100%;
+		color: #D3DEF5;
+		line-height: 40px;
+		text-align: center;
+		
+		text-shadow: 1px 1px 0 #123A89;
+		
+		&:link, &:hover {
+			cursor: pointer;
+		}
+		&:visited, &:active {
+			background-color: #6787C5;
+		}
+	}
+	ul {
+		height: 40px;
+		padding: 0 !important;
+		margin: 0 auto;
+		li {
+			display: inline;
+			float: left;
+			
+			padding: 0 !important;
+			a {
+				border-right: 1px solid #B89B7A;
+			}
+			&:last-child a {
+				border-right: 0;
+			}
+		}
+	}
+}

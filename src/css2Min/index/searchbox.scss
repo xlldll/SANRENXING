@@ -1,0 +1,734 @@
+@charset "UTF-8";
+
+@import "../sassCore/function";
+
+@include font-face('iconfont', '../fonts/icon/iconfont');
+
+.iconfont {
+	font-family: "iconfont";
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ucaret:before {
+	content: "\e601";
+}
+
+.icon-xiazai:before {
+	content: "\e600";
+}
+
+.icon-dcaret:before {
+	content: "\e603";
+}
+
+.icon-rcaret:before {
+	content: "\e604";
+}
+
+.icon-lcaret:before {
+	content: "\e605";
+}
+
+.icon-darrow:before {
+	content: "\e606";
+}
+
+.icon-uarrow:before {
+	content: "\e607";
+}
+
+.icon-gouwuche:before {
+	content: "\e602";
+}
+
+.icon-darrow-small:before {
+	content: "\e60b";
+}
+
+.icon-larrow:before {
+	content: "\e608";
+}
+
+.icon-collapse:before {
+	content: "\e60a";
+}
+
+.icon-rarrow:before {
+	content: "\e609";
+}
+
+//== Colors
+$gray-base: #000;
+$gray-darker: lighten($gray-base, 13.5%); // #222
+$gray-dark: lighten($gray-base, 20%); // #333
+$gray: lighten($gray-base, 33.5%); // #555
+$gray-light: lighten($gray-base, 46.7%); // #777
+$gray-lighter: lighten($gray-base, 93.5%); // #eee
+
+$brand-primary: darken(#428bca, 6.5%); // #337ab7
+$brand-success: #5cb85c;
+$brand-info: #5bc0de;
+$brand-warning: #f0ad4e;
+$brand-danger: #d9534f;
+
+//== Scaffolding
+//** Background color for `<body>`.
+$body-bg: #f7f7f7;
+$text-color: $gray-dark;
+$page-width: 1180px;
+
+//** Global textual link color.
+$link-color: $brand-primary;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: none;
+
+//== Typography
+$font-family-base: "Microsoft YaHei", "SimSun", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$font-size-base: 14px;
+$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
+
+$font-size-h1: floor(($font-size-base * 2.6)); // ~36px
+$font-size-h2: floor(($font-size-base * 2.15)); // ~30px
+$font-size-h3: ceil(($font-size-base * 1.7)); // ~24px
+$font-size-h4: ceil(($font-size-base * 1.25)); // ~18px
+$font-size-h5: $font-size-base;
+$font-size-h6: ceil(($font-size-base * 0.85)); // ~12px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base: 1.428571429; // 20/14
+$line-height-computed: floor(($font-size-base * $line-height-base)); // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family: inherit;
+$headings-font-weight: 500;
+$headings-line-height: 1.1;
+$headings-color: inherit;
+
+//== Iconography
+//** Load fonts from this directory.
+$icon-font-path: "../../fonts/";
+$icon-font-name: "glyphicons-halflings-regular";
+$icon-font-svg-id: "glyphicons_halflingsregular";
+
+$cursor-disabled: not-allowed;
+
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+
+@mixin button-variant($color,$background,$border) {
+	color: $color;
+	background-color: $background;
+	border-color: $border;
+	&:active,
+	&.active {
+		color: $color;
+		background-color: darken($background, 10%);
+		border-color: darken($border, 12%);
+	}
+}
+
+@mixin button-size($width,$height,$border-radius) {
+	width: $width;
+	line-height: $height - 2;
+	height: $height;
+	border-radius: $border-radius;
+}
+
+$sprite_img: '../img/common.png' !default;
+
+@mixin form_date_icon {
+	background: url($sprite_img) -65px -0px no-repeat;
+}
+
+@mixin form_radio_no {
+	background: url($sprite_img) -1px -0px no-repeat;
+}
+
+@mixin form_radio_yes {
+	background: url($sprite_img) -17px -0px no-repeat;
+}
+
+@mixin form_checkbox_no {
+	background: url($sprite_img) -33px -0px no-repeat;
+}
+
+@mixin form_checkbox_yes {
+	background: url($sprite_img) -49px -0px no-repeat;
+}
+
+$sprite_img: '../img/form.png';
+@mixin make-icheck() {
+	.icheckbox,
+	.iradio {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0;
+		width: 16px;
+		height: 16px;
+		border: none;
+		cursor: pointer;
+		position: relative;
+		top: -1px;
+		margin-right: 10px;
+	}
+
+	.iradio {
+		@include form_radio_no;
+	}
+
+	.iradio.hover {
+		@include form_radio_no;
+	}
+
+	.iradio.checked {
+		@include form_radio_yes;
+	}
+
+	.iradio.disabled {
+		@include form_radio_no;
+		cursor: not-allowed;
+	}
+
+	.iradio.checked.disabled {
+		@include form_radio_yes;
+	}
+
+	.icheckbox {
+		@include form_checkbox_no;
+	}
+
+	.icheckbox.hover {
+		@include form_checkbox_no;
+	}
+
+	.icheckbox.checked {
+		@include form_checkbox_yes;
+	}
+
+	.icheckbox.disabled {
+		@include form_checkbox_no;
+		cursor: not-allowed;
+	}
+
+	.icheckbox.checkbox.disabled {
+		@include form_radio_yes;
+	}
+
+}
+
+@include make-icheck;
+
+#bugfix > li > label > div {
+	width: 16px;
+}
+
+form[name='search-form'] {
+	z-index: 2;
+	margin-top: 20px;
+}
+
+/*搜索框布局*/
+.groupbox {
+	position: relative;
+	vertical-align: middle;
+	> .grp-item {
+		position: relative;
+		float: left;
+		&.active {
+			z-index: 2;
+		}
+		&:first-child {
+			margin-left: 0;
+			&:not(:last-child) {
+				border-radius: 0;
+			}
+		}
+	}
+}
+
+$width: 700px;
+$height: 40px;
+$line-height: $height - 2;
+.searchbox {
+	width: $width;
+	height: $height;
+	margin: 0 auto 25px auto;
+	/*搜索部件——供稿方、搜索输入、确定搜索*/
+	> .grp-item {
+		height: $height;
+		line-height: $line-height;
+		/*供稿方*/
+		&:first-child {
+			width: 140px;
+			border: 1px solid #d3d3d3;
+		}
+		/*搜索输入&高级筛选*/
+		&:nth-child(2) {
+			width: 460px;
+			border-top: 1px solid #d3d3d3;
+			border-bottom: 1px solid #d3d3d3;
+		}
+	}
+	.grp-item + .grp-item {
+		margin-left: 0;
+	}
+	/*点击下拉*/
+	.searchDrpdon-toggle {
+		height: 100%;
+	}
+	/*供稿方下拉框*/
+	.dropdown-brand {
+		> .searchDrpdon-toggle {
+			background-color: #ececec;
+			color: #242424;
+			font-weight: bold;
+		}
+		/*打开下拉框*/
+		/*边框变粗*/
+		&.searchOpen {
+			border-left: 3px solid #767676;
+			border-right: 3px solid #767676;
+			border-bottom: none;
+			border-top: none;
+			> .searchDrpdon-toggle {
+				border-top: 1px solid #d3d3d3;
+				border-bottom: 1px solid transparent;
+			}
+		}
+		/*供稿方下拉内容*/
+		> .searchDrpdon-menu {
+			opacity: 1;
+			width: $width;
+			border-top: none;
+			border-left: 3px solid #767676;
+			border-right: 3px solid #767676;
+			border-bottom: 3px solid #767676;
+			z-index: 20;
+			left: -2.5px;
+			top: 40px;
+			background-color: #ececec;
+			padding: 20px 38px;
+			li {
+				float: left;
+				line-height: 30px;
+				min-width: 60px;
+				padding-right: 30px;
+			}
+			/*面板标题*/
+			.brand-tab {
+				a {
+					color: $text-color;
+					display: inline-block;
+					height: auto;
+					position: relative;
+					&:active {
+						color: #000;
+					}
+				}
+				/*下拉符号*/
+				.active a:after, .active a:before {
+					left: 50%;
+					border: solid transparent;
+					content: " ";
+					height: 0;
+					width: 0;
+					position: absolute;
+					pointer-events: none;
+					z-index: 2;
+				}
+				.active a:after {
+					top: 26px;
+					border-bottom-color: #ececec;
+					border-width: 8px;
+					margin-left: -8px;
+				}
+				.active a:before {
+					top: 20px;
+					border-bottom-color: #777;
+					border-width: 11px;
+					margin-left: -11px;
+				}
+			}
+			/*面板内容*/
+			.tab-pane {
+				padding: 10px 20px 0;
+				margin-top: 10px;
+				border-top: 2px solid #777;
+			}
+		}
+	}
+	/*面板标题和多选格式*/
+	.brand-tab, #search-brand-selected {
+		font-weight: bold;
+		color: $brand-primary;
+	}
+	#search-brand-selected {
+		margin-top: 20px;
+		border-top: 2px solid #777;
+		padding: 10px 20px 0;
+	}
+	/*下拉菜单*/
+	.searchDrpdon-menu {
+		margin-top: 0;
+	}
+	/*确定按钮组*/
+	.filter-btn-group {
+		margin-top: 20px;
+		float: right;
+		.btn-clear {
+			padding: 0 10px;
+			width: auto;
+			line-height: 32px;
+			height: 34px;
+			border-radius: 0;
+			color: #1f91f1;
+			background-color: transparent;
+			border-color: transparent;
+			&:active, .active {
+				color: #0d77d0;
+				background-color: rgba(0, 0, 0, 0);
+				border-color: rgba(0, 0, 0, 0);
+				box-shadow: none;
+			}
+		}
+		.btn-sure {
+			width: 80px;
+			line-height: 32px;
+			height: 34px;
+			border-radius: 0;
+			color: #fff;
+			background-color: #1f91f1;
+			border-color: transparent;
+			&:active, .active {
+				color: #fff;
+				background-color: #0d77d0;
+				border-color: rgba(0, 0, 0, 0);
+			}
+		}
+	}
+
+	/*搜索输入&高级筛选*/
+	.input-block {
+		> input, > .dropdown-filter {
+			float: left;
+			height: 100%;
+		}
+
+		> input {
+			border: none;
+			width: 338px;
+			padding: 0 10px;
+			&:focus{
+				outline: -webkit-focus-ring-color inset 3px;
+			}
+		}
+		> .dropdown-filter {
+			width: 122px;
+		}
+	}
+	/*高级筛选*/
+	.dropdown-filter {
+		background-color: #fff;
+		a {
+			color: #333;
+		}
+		> .searchDrpdon-toggle {
+			color: #333;
+		}
+		/*粗边框*/
+		&.searchOpen {
+			border-left: 3px solid #767676;
+			border-right: 3px solid #767676;
+			top: -1px;
+			height: $height;
+			> .searchDrpdon-toggle {
+				border-top: 1px solid #d3d3d3;
+				border-bottom: 1px solid transparent;
+			}
+		}
+		/*下拉菜单*/
+		> .searchDrpdon-menu {
+			width: 462px;
+			height: 414px;
+			border-top: none;
+			border-left: 3px solid #767676;
+			border-right: 3px solid #767676;
+			border-bottom: 3px solid #767676;
+			z-index: 1024;
+			top: 40px;
+			left: -342.5px;
+			padding: 10px 40px;
+			/*日期选择*/
+			.search-date {
+				width: 185px;
+				display: inline-block;
+				position: relative;
+				cursor: pointer;
+				/*.icon {
+					background: url($sprite_img) -65px 0px no-repeat;
+					height: 24px;
+					width: 24px;
+					position: absolute;
+					top: 50%;
+					margin-top: -12px;
+					right: 8px;
+				}*/
+				/*input[type="text"] {
+					display: block;
+					width: 100%;
+					padding-right: 42px;
+					height: 34px;
+					line-height: 32px;
+				}*/
+			}
+
+			.btn-clear {
+				padding-right: 0;
+			}
+			/*分列*/
+			.col {
+				float: left;
+				width: 39.2%;
+				+ .col {
+					margin-left: 20px;
+					width: 50%;
+				}
+			}
+			h3 {
+				margin: 0;
+				padding: 0;
+				line-height: 30px;
+				font-size: 14px;
+				border-bottom: 2px solid #333;
+			}
+			.filter-items {
+				line-height: 26px;
+				margin-top: 8px;
+				font-size: $font-size-small;
+			}
+			.filter-item-level1:not(.col:last-child .filter-item-level1) {
+				color: $text-color;
+				font-weight: bold;
+			}
+			.filter-item-level2 {
+				padding-left: 34px;
+			}
+		}
+	}
+	/*搜索按钮*/
+	.btn-search {
+		font-size: 16px;
+		border: 1px solid #1687e1;
+		@include button-size (100px, $height, 0);
+		@include button-variant (#fff, #1c8df0, transparent);
+	}
+}
+
+/*btn1按钮样式*/
+.btn1 {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	padding: 0;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	&:focus {
+		outline: 0;
+	}
+	&:active, &.active {
+		outline: 0;
+		background-image: none;
+		box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+	}
+}
+
+.btn1.disabled,
+.btn1[disabled],
+fieldset[disabled] .btn1 {
+	cursor: not-allowed;
+	box-shadow: none;
+}
+
+//
+// Dropdown menus
+// --------------------------------------------------
+
+$dropdown-transition: 0.3s;
+.searchCaret {
+	font-size: $font-size-small - 2;
+	display: inline-block;
+	margin-left: 4px;
+	margin-top: -1px;
+	.searchDrpdon.searchFade & {
+		transition: transform $dropdown-transition;
+	}
+	.searchDrpdon.searchFade.searchIn & {
+		transform: rotate(180deg);
+	}
+}
+
+.searchDrpdon {
+	position: relative;
+	overflow: hidden;
+	&.searchOpen {
+		overflow: visible;
+	}
+}
+
+.searchDrpdon-toggle {
+	display: block;
+	text-align: center;
+	&:focus {
+		outline: 0;
+	}
+}
+
+.searchDrpdon-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 100;
+	text-align: left;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	min-height: 100px;
+	padding: 10px;
+	margin-top: 3px;
+	border: 1px solid #E6E6E6;
+	background-color: #fff;
+	label {
+		margin: 0;
+	}
+	&.searchFade {
+		transition: transform $dropdown-transition, opacity $dropdown-transition;
+		transform: scale(0.95, 0.95);
+		transform-origin: 0 0;
+		opacity: 0.5;
+		&.searchIn {
+			transform: scale(1, 1);
+			opacity: 1;
+		}
+	}
+}
+
+/*面板显示*/
+$tab-transition: 0.1s;
+.tab-pane {
+	display: none;
+	&.active {
+		display: block;
+	}
+	&.searchFade {
+		transition: opacity $tab-transition;
+		opacity: 0.3;
+	}
+	&.searchFade.searchIn {
+		opacity: 1;
+	}
+}
+
+/*筛选面板内容*/
+// Vertical gradient, from top to bottom
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Color stops are not available in IE9 and below.
+@mixin vertical($start-color: #555,$end-color: #333,$start-percent: 0%,$end-percent: 100%) {
+	background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+	background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Opera 12
+	background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=$start-color, endColorstr=$end-color, GradientType=0); // IE9 and down
+}
+
+.goods-block {
+	position: relative;
+	height: 100%;
+	background-color: #fff;
+	font-size: 14px;
+	line-height: 1.5;
+	cursor: pointer;
+	border-radius: 2px;
+
+	.goods-img {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 65%;
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+			img {
+				display: block;
+				width: 100%;
+				background-size: contain;
+			}
+		}
+		.bg {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 50%;
+		}
+
+		.goods-btn-group {
+			position: absolute;
+			bottom: 0;
+			right: 6px;
+			.btn {
+				float: right;
+				color: #fff;
+				font-size: 16px;
+				@include button-size (16px * 1.875, 16px * 1.625, 0);
+				@include button-variant(#fff, transparent, transparent);
+				&:hover {
+					color: #fd9f12;
+					box-shadow: none;
+				}
+			}
+		}
+
+	}
+	.goods-ttl {
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 35%;
+		padding: 0 12px;
+		p{
+			height: 28px;
+			margin: 0;
+			line-height: 28px;
+			a.brand {
+				float: left;
+				height: 28px;
+				img {
+					position: relative;
+					max-height: 20px;
+					top: -1px;
+				}
+			}
+			.time {
+				float: right;
+				height: 28px;
+				color: #999;
+			}
+		}
+	}
+
+}

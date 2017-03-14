@@ -1,0 +1,85 @@
+@charset "UTF-8";
+//Created by LinChuQiang.
+/*筛选容器选项栏*/
+
+/*----------------------------Green filter bar-----------------------------*/
+#filter {
+	background: url("../img/shots/nav/bar.png") repeat-x 0 -94px;
+	display: block;
+	height: 39px;
+	margin: 55px auto;
+	position: relative;
+	width: 85%;
+	text-align: center;
+	-moz-box-shadow: 0 4px 4px #000;
+	-webkit-box-shadow: 0 4px 4px #000;
+	box-shadow: 0 4px 4px #000;
+	&:before, &:after {
+		background: url("../img/shots/nav/bar.png") no-repeat;
+		height: 43px;
+		position: absolute;
+		top: 0;
+		width: 78px;
+		content: '';
+		-moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+		-webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+		box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+	}
+	&:before {
+		background-position: 0 -47px;
+		left: -78px;
+	}
+	&:after {
+		background-position: 0 0;
+		right: -78px;
+	}
+	a {
+		color: #FFFFFF;
+		display: inline-block;
+		height: 39px;
+		line-height: 37px;
+		padding: 0 15px;
+		text-shadow: 1px 1px 1px #315218;
+		&:hover {
+			text-decoration: none;
+		}
+		&.active {
+			background: url("../img/shots/nav/bar.png") repeat-x 0 -138px;
+			box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2), (-1px) 0 0 rgba(255, 255, 255, 0.2), 1px 0 1px rgba(0, 0, 0, 0.2) inset, (-1px) 0 1px rgba(0, 0, 0, 0.2) inset;
+		}
+	}
+}
+
+/*----------------------------Content area-----------------------------*/
+
+#container {
+	position: relative;
+	display: block;
+	max-width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	ul {
+		width: 100% !important;
+		li {
+			position: relative;
+			display: inline-block;
+			width: 300px;
+			height: 260px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			list-style: none outside none;
+			overflow: hidden;
+			-moz-box-shadow: 2px 2px 5px -3px #909090;
+			-webkit-box-shadow: 2px 2px 5px -3px #909090;
+			box-shadow: 2px 2px 5px -3px #909090;
+			transition: all 0.4s;
+			&:hover {
+				box-shadow: 2px 2px 10px -1px #126123;
+			}
+		}
+		&.hidden {
+			display: none;
+		}
+	}
+	
+}
