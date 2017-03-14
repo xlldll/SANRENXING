@@ -1,0 +1,15 @@
+@charset "UTF-8";
+//Created by LCQ on 2016/8/27.
+$font-family-base: "Microsoft YaHei", "SimSun", "Helvetica Neue", Helvetica, Arial, sans-serif;
+//提示框箭头有缝隙，无法解决
+//$tooltip-arrow-width:3.9px;
+@import "_mybootstrap.scss";
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+
