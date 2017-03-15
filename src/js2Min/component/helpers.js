@@ -14,9 +14,9 @@ let helpers =  {
       .replace(/-+$/, '');            // Trim - from end of text
   },
   getFunName : function() {
-	  var adjectives = ['a', 'b', 'c', 'd', 'e'];
+	  var adjectives = ['科技', '前端', '后端', 'JavaScipt', 'Web'];
 	
-	  var nouns = ['f1', 'f2'];
+	  var nouns = ['大牛', '前辈'];
     
     return `${this.rando(adjectives)}-${this.rando(adjectives)}-${this.rando(nouns)}`;
   }
