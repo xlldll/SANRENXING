@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 23:56 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 00:00 */
 
 /*
 
@@ -92,4 +92,4 @@ var k=b(g),m=k.get(0);m.style.position="absolute",m.style.margin="0",e.adjustWid
 m.style.width=t+"px"),m.style.top=g.offset().top-x.top+"px",m.style.left=g.offset().left-x.left+"px",k.css("opacity",0),// IE
 e.useScaling&&k.scale(0),k.appendTo(l),(0===e.maxWidth||g.offset().left<e.maxWidth)&&i.push({element:a(k),dest:g,animation:j})}}),A.remove(),e.atomic){for($toDelete=l.find(e.selector),l.prepend(A.find(e.selector)),d=0;d<i.length;d++)if(i[d].dest&&i[d].style){var C=i[d].dest,D=C.offset();C.css({position:"relative",top:i[d].style.top-D.top,left:i[d].style.left-D.left}),C.animate({top:"0",left:"0"},e.duration,e.easing,v)}else i[d].element.animate(i[d].animation,e.duration,e.easing,v);$toDelete.remove()}else// Perform custom visual enhancements during the animation
 for(e.enhancement(l),d=0;d<i.length;d++)i[d].element.animate(i[d].animation,e.duration,e.easing,v)})}}(jQuery);
-/*! grunt 最后修改于： 2017-04-07 */
+/*! grunt 最后修改于： 2017-04-08 */

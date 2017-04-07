@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 23:56 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 00:00 */
 
 /*indexCfg跟index.js同级目录*/
 //下面依赖的indexCfg模块的实际路径为 src/jsRequire/indexCfg.js
@@ -12,4 +12,4 @@ requirejs(["dropdown"],function(){}),requirejs(["tab"],function(){}),requirejs([
 requirejs(["adSlider"],function(){}),/*分类选取*/
 requirejs(["quicksand"],function(){}),/*页面耗时*/
 requirejs(["costTime"],function(){})});
-/*! grunt 最后修改于： 2017-04-07 */
+/*! grunt 最后修改于： 2017-04-08 */

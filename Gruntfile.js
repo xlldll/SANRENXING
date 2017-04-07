@@ -243,7 +243,7 @@
               cwd: js2MinSync,
               src: ['!*.min.js', '*.js'],
               dest: destJsMin,
-              ext: '.min.js',
+              ext: '.js',
               extDot: 'last',
               flatten: false
             }
@@ -281,7 +281,7 @@
               cwd: bowerJs,
               src: ['!*.min.js', '{,**/}*.js'],
               dest: destBowerJs,
-              ext: '.min.js',
+              ext: '.js',
               extDot: 'last',
               flatten: false
             }

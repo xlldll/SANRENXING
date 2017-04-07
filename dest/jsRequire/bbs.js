@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 23:56 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 00:00 */
 
 /**
  * Created by LinChuQiang.
@@ -55,4 +55,4 @@ require(["indexCfg"],function(){/*bbs*/
 	*/
 /*reactJsx*/
 requirejs(["bbsES5"],function(){})});
-/*! grunt 最后修改于： 2017-04-07 */
+/*! grunt 最后修改于： 2017-04-08 */

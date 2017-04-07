@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 23:56 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 00:00 */
 
 /*!
  * jQuery Validation Plugin v1.13.0
@@ -214,4 +214,4 @@ b=a.ajax,a.ajax=function(d){var e=("mode"in d?d:a.ajaxSettings).mode,f=("port"in
 // provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier event delegation
 // handler is only called when $(event.target).is(delegate), in the scope of the jquery-object for event.target
 a.extend(a.fn,{validateDelegate:function(b,c,d){return this.bind(c,function(c){var e=a(c.target);if(e.is(b))return d.apply(e,arguments)})}})});
-/*! grunt 最后修改于： 2017-04-07 */
+/*! grunt 最后修改于： 2017-04-08 */

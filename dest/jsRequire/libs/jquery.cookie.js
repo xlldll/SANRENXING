@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 23:56 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 00:00 */
 
 /*!
  * jQuery Cookie Plugin v1.4.0
@@ -28,4 +28,4 @@ l=f(r,g);break}
 e||void 0===(r=f(r))||(l[q]=r)}return l};h.defaults={},a.removeCookie=function(b,c){
 // Must not alter options, thus extending a fresh object...
 return void 0!==a.cookie(b)&&(a.cookie(b,"",a.extend({},c,{expires:-1})),!0)}});
-/*! grunt 最后修改于： 2017-04-07 */
+/*! grunt 最后修改于： 2017-04-08 */
