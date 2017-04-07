@@ -3,7 +3,8 @@ require.config( {
 	//不过在有config的情况下，baseUrl以config配置的为准
 	//如果没有显式指定config及data-main，则默认的baseUrl为包含RequireJS的那个HTML页面的所属目录。
 	//By default load any module IDs from src/ 也就是jsRequire目录的上一层目录src
-	baseUrl : '../src',
+	//baseUrl : '../src',
+	baseUrl : 'dest',
 	//paths中声明模块，路径相对于baseUrl即src
 	paths   : {
 		'requirejs'                : 'bowerJs/requirejs/require',

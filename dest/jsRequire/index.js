@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 23:49 */
+/*! grunt-0.0.1.js 压缩于：2017-04-07 23:54 */
 
 /*indexCfg跟index.js同级目录*/
 //下面依赖的indexCfg模块的实际路径为 src/jsRequire/indexCfg.js
