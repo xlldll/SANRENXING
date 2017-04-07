@@ -231,7 +231,7 @@ module.exports = (grunt) ->
 					cwd    :jsRequire,
 					src    :['!*.min.js','{,**/}*.js']
 					dest   :destJsRjs
-					ext    :'.min.js'
+					ext    :'.js'
 					extDot:'last'
 					flatten:false
 				]
@@ -289,6 +289,7 @@ module.exports = (grunt) ->
 								DEBUG:false
 						warnings:true
 						mangle  :false
+						
 		### 9.Bower管理引入文件  ###
 		bower    :
 			install:

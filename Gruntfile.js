@@ -262,7 +262,7 @@
               cwd: jsRequire,
               src: ['!*.min.js', '{,**/}*.js'],
               dest: destJsRjs,
-              ext: '.min.js',
+              ext: '.js',
               extDot: 'last',
               flatten: false
             }

@@ -1,7 +1,7 @@
 /**
  * Created by LinChuQiang.
  */
-require( [ 'indexCfg.min' ],function() {
+require( [ 'indexCfg' ],function() {
 
 	/*bbs*/
 	/*
