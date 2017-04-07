@@ -157,15 +157,15 @@
             {
               expand: true,
               cwd: css2MinSync,
-              src: ['**/*.css', '!**/*.map'],
-              dest: destCssMin,
-              ext: '.css'
+              src: ['*.css', '!**/*.map'],
+              dest: destCss,
+              ext: '.min.css'
             }
           ]
         },
         css2MultSync: {
           files: {
-            'dest/css/css2MultSync/css2MultSync.min.css': [css2MultSync + '/{,**/}*.css']
+            'dest/css/indexMediaEff.min.css': [css2MultSync + '/index.css', css2MultSync + '/media.css', css2MultSync + '/effect.css']
           }
         }
       },
