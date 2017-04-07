@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/*筛选容器选项栏*/
+/*----------------------------Green filter bar-----------------------------*/
+#filter {
+  background: url("../img/shots/nav/bar.png") repeat-x 0 -94px;
+  display: block;
+  height: 39px;
+  margin: 55px auto;
+  position: relative;
+  width: 85%;
+  text-align: center;
+  -moz-box-shadow: 0 4px 4px #000;
+  -webkit-box-shadow: 0 4px 4px #000;
+  box-shadow: 0 4px 4px #000;
+}
+#filter:before, #filter:after {
+  background: url("../img/shots/nav/bar.png") no-repeat;
+  height: 43px;
+  position: absolute;
+  top: 0;
+  width: 78px;
+  content: '';
+  -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+}
+#filter:before {
+  background-position: 0 -47px;
+  left: -78px;
+}
+#filter:after {
+  background-position: 0 0;
+  right: -78px;
+}
+#filter a {
+  color: #FFFFFF;
+  display: inline-block;
+  height: 39px;
+  line-height: 37px;
+  padding: 0 15px;
+  text-shadow: 1px 1px 1px #315218;
+}
+#filter a:hover {
+  text-decoration: none;
+}
+#filter a.active {
+  background: url("../img/shots/nav/bar.png") repeat-x 0 -138px;
+  box-shadow: 1px 0 0 rgba(255, 255, 255, 0.2), -1px 0 0 rgba(255, 255, 255, 0.2), 1px 0 1px rgba(0, 0, 0, 0.2) inset, -1px 0 1px rgba(0, 0, 0, 0.2) inset;
+}
+
+/*----------------------------Content area-----------------------------*/
+#container {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#container ul {
+  width: 100% !important;
+}
+#container ul li {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 260px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  list-style: none outside none;
+  overflow: hidden;
+  -moz-box-shadow: 2px 2px 5px -3px #909090;
+  -webkit-box-shadow: 2px 2px 5px -3px #909090;
+  box-shadow: 2px 2px 5px -3px #909090;
+  transition: all 0.4s;
+}
+#container ul li:hover {
+  box-shadow: 2px 2px 10px -1px #126123;
+}
+#container ul.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=filterBox.css.map */

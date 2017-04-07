@@ -1,0 +1,97 @@
+@charset "UTF-8";
+.icon-sign-in:before, .icon-user:before, .icon-check:before, .icon-sign-out:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*登录按钮*/
+/*传入参数，引入即可*/
+@font-face {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/fontAwesome/fontawesome-webfont.eot");
+  src: url("../fonts/fontAwesome/fontawesome-webfont.eot?#iefix") format("eot"), url("../fonts/fontAwesome/fontawesome-webfont.svg#FontAwesome") format("svg"), url("../fonts/fontAwesome/fontawesome-webfont.woff") format("woff"), url("../fonts/fontAwesome/fontawesome-webfont.ttf") format("truetype");
+}
+.icon-sign-in, .icon-user, .icon-check, .icon-sign-out {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sign-in:before {
+  content: "";
+}
+
+.icon-user:before {
+  content: "";
+}
+
+.icon-check:before {
+  content: "";
+}
+
+.icon-sign-out:before {
+  content: "";
+}
+
+#login {
+  height: 40px;
+  text-align: right;
+  vertical-align: middle;
+  line-height: 40px;
+}
+#login a {
+  color: #555;
+  font-size: 14px;
+  margin: 0 5px;
+}
+#login a span {
+  margin-right: 5px;
+}
+#login a:link, #login a:hover {
+  color: #92CAE4;
+  cursor: pointer;
+}
+#login a:visited, #login a:active {
+  background-color: #6787C5;
+}
+
+/*注册登录框*/
+#logDiv, #regDiv {
+  display: inline-block;
+  height: 34px;
+  line-height: 34px;
+  margin: 0;
+}
+
+/*注册登录验证*/
+#logWarn, #regWarn {
+  height: 34px;
+  line-height: 34px;
+  margin: 0;
+  display: inline-block;
+}
+
+.popover {
+  white-space: nowrap;
+}
+
+.invalid {
+  border: 2px solid rgba(250, 8, 8, 0.2) !important;
+  background: url("src/img/invalid.png") no-repeat right !important;
+  padding-right: 3px !important;
+}
+
+.valid {
+  border: 2px solid rgba(45, 200, 40, 0.39) !important;
+  background: url("src/img/valid.png") no-repeat right !important;
+  padding-right: 3px !important;
+}
+
+/*# sourceMappingURL=loginout.css.map */

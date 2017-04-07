@@ -211,7 +211,7 @@ module.exports = (grunt) ->
 				files  :[
 					expand :true
 					cwd    :js2MinSync,
-					src    :'**/*.js'
+					src    :['*.js']
 					dest   :destJsMin
 					ext    :'.js'
 					flatten:true
@@ -261,12 +261,13 @@ module.exports = (grunt) ->
 		bower    :
 			install:
 				options:
+					copy: true
 					targetDir     :'./src/bower'
 					layout        :'byType',
 					install       :true
 					verbose       :true
 					cleanTargetDir:true
-					cleanBowerDir :true
+					cleanBowerDir :false
 					bowerOptions  :{}
 		### 10.转移开发文件到发布文件夹  ###
 		copy     :
@@ -279,17 +280,17 @@ module.exports = (grunt) ->
 		connect  :
 			options:
 				open      :
-					target  :'http://sanrenxing'
+					target  :'http://Sanrenxing-Demo'
 					appName :'chrome'
 					callback:()->
-				hostname  :'sanrenxing'
+				hostname  :'Sanrenxing-Demo'
 				livereload:35729
 			index:
 				options:
 					open:true
 					port:1618
 					base:[
-						'src/html/'
+						'.'
 					]
 		### 12.文件历史缓存  ###
 		newer    :
@@ -503,8 +504,7 @@ module.exports = (grunt) ->
 	### 导入外部文件，bower install 自动加载依赖JS文件 ###
 	grunt.registerTask('1bower', [
 		'bower:install',
-		'sync:bowerJs',
-		'watch:bower'
+		'sync:bowerJs'
 	]);
 
 	### 2.开发环境-项目开发 ###
