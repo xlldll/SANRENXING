@@ -37,7 +37,7 @@ require.config( {
 	//注意：exports只会输出某一个方法或变量
 	shim    : {
 		'raxus-slider' : {
-			deps : [ 'jquery-1.11.0' ]
+			deps : [ 'jquery-1.11' ]
 		}
 		/*'jquery.cookie'            : {
 		 deps    : [ 'jquery' ],
