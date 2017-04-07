@@ -5,19 +5,20 @@ module.exports = (grunt) ->
 		destDir:'dest'
 		srcDir :'src'
 	### 发布目录文件夹 ###
-	[destHtml,destJs,destCss,destImg,destFonts] = [
+	[destHtml,destJs,destCss,destImg,destFonts,destJsMin,destJsRjs,destBowerJs] = [
 		dirs.destDir + '/html',
 		dirs.destDir + '/js',
 		dirs.destDir + '/css',
 		dirs.destDir + '/img',
-		dirs.destDir + '/fonts'
+		dirs.destDir + '/fonts',
+		dirs.destDir + '/js2Min',
+		dirs.destDir + '/jsRequire',
+		dirs.destDir + '/bowerJs'
 	]
-	[destCssMin,destCssMult,destJsMin,destJsMult,destJsRjs] = [
+	[destCssMin,destCssMult,destJsMult] = [
 		destCss + '/css2MinSync',
 		destCss + '/css2MultSync',
-		destJs + '/js2MinSync',
 		destJs + '/js2MultSync',
-		destJs + '/jsrequire'
 	]
 
 	### 开发主页、图片、格式 ###
@@ -156,7 +157,10 @@ module.exports = (grunt) ->
 				}]
 			css2MultSync :
 				files:
-					'dest/css/indexMediaEff.min.css': [css2MultSync + '/index.css',css2MultSync + '/media.css',css2MultSync + '/effect.css',]
+					'dest/css/indexMediaEff.min.css': [css2MultSync + '/index.css',css2MultSync + '/media.css',css2MultSync + '/effect.css']
+			bbsMult :
+				files:
+					'dest/css/bbsihover.min.css': [css2MultSync + '/normalize.css',css2MultSync + '/ihover/ihover.css',css2MultSync + '/bbs.css']
 		### 5.单纯拼接合并CSS以及JS到发布目录，并没有压缩处理效果 ###
 		concat  :
 			options:
@@ -211,10 +215,39 @@ module.exports = (grunt) ->
 				files  :[
 					expand :true
 					cwd    :js2MinSync,
-					src    :['*.js']
+					src    :['!*.min.js','*.js']
 					dest   :destJsMin
-					ext    :'.js'
-					flatten:true
+					ext    :'.min.js'
+					extDot:'last'
+					flatten:false
+				]
+			### 按原目录下的每个文件结构压缩至新文件夹中 ###
+			rjs:
+				options:
+					mangle:true
+					report:"gzip"
+				files  :[
+					expand :true
+					cwd    :jsRequire,
+					src    :['!*.min.js','{,**/}*.js']
+					dest   :destJsRjs
+					ext    :'.min.js'
+					extDot:'last'
+					flatten:false
+				]
+			### 按原目录下的每个文件结构压缩至新文件夹中 ###
+			bower:
+				options:
+					mangle:true
+					report:"gzip"
+				files  :[
+					expand :true
+					cwd    :bowerJs,
+					src    :['!*.min.js','{,**/}*.js']
+					dest   :destBowerJs
+					ext    :'.min.js'
+					extDot:'last'
+					flatten:false
 				]
 			### 多合一JS压缩 ###
 			js2MultSync :
@@ -246,7 +279,7 @@ module.exports = (grunt) ->
 					include       :[
 						'requireJs'
 					]
-					out           :destJsRjs + '/packageJs.js'
+					out           :destJs + '/requireJSPackage.min.js'
 					uglify2       :
 						output  :
 							beautify:false
@@ -256,7 +289,6 @@ module.exports = (grunt) ->
 								DEBUG:false
 						warnings:true
 						mangle  :false
-
 		### 9.Bower管理引入文件  ###
 		bower    :
 			install:
@@ -478,6 +510,7 @@ module.exports = (grunt) ->
 				options:
 					livereload:'<%=connect.options.livereload%>'
 				files  :[
+					'./*.html',
 					'./' + srcHtml + '/{,**/}*.html',
 					'./' + css2Min + '/{,**/}*.css',
 					'./' + css2Mult + '/{,**/}*.css',
@@ -491,7 +524,14 @@ module.exports = (grunt) ->
 			bower:
 				files:[bower + '/{,**/}*']
 				tasks:[
-					'sync:bowerJs'
+					'sync:bowerJs',
+					'uglify:bower'
+				]
+			### 11.JSrequire ###
+			requireJS:
+				files:[jsRequire + '/{,**/}*']
+				tasks:[
+					'uglify:rjs'
 				]
 	)
 	require('load-grunt-tasks')(grunt, {

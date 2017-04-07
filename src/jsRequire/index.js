@@ -1,6 +1,6 @@
 /*indexCfg跟index.js同级目录*/
 //下面依赖的indexCfg模块的实际路径为 src/jsRequire/indexCfg.js
-require( [ 'indexCfg' ],function() {
+require( [ 'indexCfg.min' ],function() {
 	requirejs( [ 'jquery' ],function( $ ) {
 		var
 			resLogo = $( '#resLogo' ),
