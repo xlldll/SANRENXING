@@ -280,6 +280,10 @@ module.exports = (grunt) ->
 						'requireJs'
 					]
 					out           :destJs + '/requireJSPackage.min.js'
+					error: (done, err) =>(
+						grunt.log.warn(err)
+						done()
+					)
 					uglify2       :
 						output  :
 							beautify:false

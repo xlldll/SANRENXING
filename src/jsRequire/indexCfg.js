@@ -23,7 +23,7 @@ require.config( {
 		'dropdown'                 : 'js2Min/dropdown',
 		'tab'                      : 'js2Min/tab',
 		'checkRadio'               : 'js2Min/checkRadio',
-		'jquery-1.11'            : 'jsRequire/libs/jquery-1.11',
+		'jquery-1.11'              : 'jsRequire/libs/jquery-1.11',
 		'adSlider'                 : 'js2Min/adSlider',
 		'slideAuthCode'            : 'js2Min/slideAuthCode',
 		'quicksand'                : 'js2Min/quicksand',

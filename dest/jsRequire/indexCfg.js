@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-08 00:07 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 09:08 */
 
 require.config({
 //data-main已经指定了baseUrl：src/jsRequire/index
@@ -14,5 +14,5 @@ paths:{requirejs:"bowerJs/requirejs/require",holder:"bowerJs/holderjs/holder",jq
 //deps数组，表明该模块的依赖性
 //exports值（输出的变量名），表明这个模块外部调用时的名称
 //注意：exports只会输出某一个方法或变量
-shim:{"raxus-slider":{deps:["jquery-1.11.0"]}}});
+shim:{"raxus-slider":{deps:["jquery-1.11"]}}});
 /*! grunt 最后修改于： 2017-04-08 */

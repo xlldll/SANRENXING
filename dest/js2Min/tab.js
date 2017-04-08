@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-08 00:07 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 09:08 */
 
 define(["jquery","transition"],function(a){function b(b){
 //如果一个获取的是jQuery对象，那么我们在变量前面加上$，如：var $variab = jQuery对象；

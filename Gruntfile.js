@@ -325,6 +325,12 @@
             name: 'jsRequire/index',
             include: ['requireJs'],
             out: destJs + '/requireJSPackage.min.js',
+            error: (function(_this) {
+              return function(done, err) {
+                grunt.log.warn(err);
+                return done();
+              };
+            })(this),
             uglify2: {
               output: {
                 beautify: false
