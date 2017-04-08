@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 18:44 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 11:14 */
 
 define(["jquery","transition"],function(a){function b(b){
 //如果一个获取的是jQuery对象，那么我们在变量前面加上$，如：var $variab = jQuery对象；
@@ -46,4 +46,4 @@ c.call(a(this),"show")};
 //$( document ).on( 'click.my.tab.data-api','[data-toggle="tab"]',clickHandler );
 //[data-toggle="tab"]：面板标题中的a标签
 return a(document).on("click"+d+".data-api",'[data-toggle="tab1"]',e),a});
-/*! grunt 最后修改于： 2017-04-07 */
+/*! grunt 最后修改于： 2017-04-08 */

@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 18:44 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 11:14 */
 
 /**
  * Created by LCQ on 2016/11/18.
@@ -36,4 +36,4 @@ a.each(d,function(a,c){b(a,c)}),a(document).on("click","#filter a",function(b){v
 // Using the Quicksand plugin to animate the li items.
 // It uses data('list') defined by our createList function:
 a("#stage").quicksand(c.data("list").find("li"),{duration:740,retainExisting:!1,enhancement:function(a){a.find("li").css({marginLeft:function(){var b=a.width(),c=a.find("li").width(),d=Math.floor(b/c);return(b/c-d)*c/(d+1)}})}}),b.preventDefault()}),licenter(),a(window).resize(function(){licenter()})});
-/*! grunt 最后修改于： 2017-04-07 */
+/*! grunt 最后修改于： 2017-04-08 */

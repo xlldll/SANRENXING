@@ -1,4 +1,4 @@
-/*! grunt-0.0.1.js 压缩于：2017-04-07 18:44 */
+/*! grunt-0.0.1.js 压缩于：2017-04-08 11:14 */
 
 /**
  * 仿淘宝网拖动滑块验证码——个人修改版
@@ -12,4 +12,4 @@ h.mousedown(function(a){f=!0,d=a.pageX-parseInt(h.css("left"),10)}),
 a(document).mousemove(function(a){var b=a.pageX-d;f&&(b>0&&b<=k?(h.css({left:b}),i.css({width:b})):b>k&&//鼠标指针移动距离达到最大时清空事件
 c())}).mouseup(function(a){f=!1,a.pageX-d<k&&(//鼠标松开时，如果没有达到最大距离位置，滑块就返回初始位置
 h.css({left:0}),i.css({width:0}))})},a("#vcodeDrag").slideAuthCode()});
-/*! grunt 最后修改于： 2017-04-07 */
+/*! grunt 最后修改于： 2017-04-08 */
